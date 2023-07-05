@@ -66,6 +66,8 @@ ENDM
     ;-------------------------------
     COUNT_POS_NEG PROC
         LEA SI,BUFFER+2
+        CMP [SI],'0'
+        JE EXIT_COUNT    ;So 0 khong la POS, NEG
         MOV BL,'-'
         CMP [SI],BL
         JE IS_NEG
